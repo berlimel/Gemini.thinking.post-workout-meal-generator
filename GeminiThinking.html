@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Post-Workout Meal Suggestions</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1, h2 {
+    text-align: center;
+}
+.input-area {
+    text-align: center;
+    margin-bottom: 20px;
+}
+select, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+}
+#mealSuggestion {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Post-Workout Meal Suggestions</h1>
+        <div class="input-area">
+            <label for="workoutType">Select Workout Type:</label>
+            <select id="workoutType">
+                <option value="weightLifting">Weight Lifting</option>
+                <option value="swimming">Swimming</option>
+                <option value="biking">Biking</option>
+                <option value="running">Running</option>
+            </select>
+            <button onclick="suggestMeal()">Get Meal Suggestion</button>
+        </div>
+        <div id="mealSuggestion">
+            Click "Get Meal Suggestion" to see a meal idea.
+        </div>
+    </div>
+
+    <script>
+        const meals = {
+            weightLifting: [
+                "Salmon with quinoa and broccoli",
+                "Tofu scramble with spinach and whole grain bread",
+                "Lentil and spinach soup with whole grain bread",
+                "Eggs with sweet potatoes and spinach",
+                "Black bean and quinoa salad with avocado"
+            ],
+            swimming: [
+                "Whole grain pasta with tofu and mushrooms",
+                "Sweet potato and black bean bowl with avocado",
+                "Brown rice with salmon and spinach",
+                "Egg and spinach omelet with whole grain bread",
+                "Lentil soup with whole grain bread"
+            ],
+            biking: [
+                "Whole grain pasta with red beans and onions",
+                "Sweet potato and black bean tacos (using whole grain bread) with spinach and avocado",
+                "Brown rice and lentil bowl with spinach",
+                "Peanut butter and banana sandwich on whole grain bread",
+                "Millet porridge with oat milk and walnuts"
+            ],
+            running: [
+                "Brown rice and black bean bowl with spinach and feta cheese",
+                "Sweet potato and lentil curry with brown rice",
+                "Whole grain bread with peanut butter and banana",
+                "Quinoa salad with red beans and spinach",
+                "Bulgur salad with red beans and spinach"
+            ]
+        };
+
+        function suggestMeal() {
+            const workoutType = document.getElementById("workoutType").value;
+            const mealList = meals[workoutType];
+            const randomIndex = Math.floor(Math.random() * mealList.length);
+            const suggestedMeal = mealList[randomIndex];
+            document.getElementById("mealSuggestion").innerText = "Suggested Meal: " + suggestedMeal;
+        }
+    </script>
+</body>
+</html>
